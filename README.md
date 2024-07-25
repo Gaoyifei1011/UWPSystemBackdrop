@@ -6,7 +6,7 @@
 
 #### 按照 Microsoft 官方的说明，如果我们需要在 UWP 项目中使用 Mica 或 Desktop Acrylic 背景色，需要引入 Microsoft.UI.Xaml （WinUI 2）Nuget 包依赖，而且 WinUI 2 只有 Mica Base，没有 Mica Alt。
 
-#### 在本项目中，我们提供了一种不依赖于 WinUI 2 的 Mica 和 Desktop Acrylic 背景色实现，使用的 Mica 或 Desktop Acrylic 的 API 规范，色彩样式基本与 Windows App SDK 项目保持一致。
+#### 然而当我们不想使用 WinUI 2 ，想构建自定义的背景色时，需要引入 Win2D 开源库来完成这一操作。所以在本项目中，我们提供了一种不依赖于 Win2D 的 Mica 和 Desktop Acrylic 背景色实现，使用的 Mica 或 Desktop Acrylic 的 API 规范，默认提供的色彩样式基本与 Windows App SDK 项目保持一致。
 
 ----------
 
@@ -14,7 +14,7 @@
 
 #### According to the official instructions of Microsoft, if we need to use Mica or Desktop Acrylic background color in UWP project, we need to introduce Microsoft.Ui.XAML (WinUI 2) Nuget package dependence. And WinUI 2 only has Mica Base, no Mica Alt.
 
-#### In this project, we provide a Mica and Desktop Acrylic background color implementation independent of WinUI 2, using Mica or Desktop Acrylic API specification. The color styles are basically consistent with the Windows App SDK project.
+#### However, when we do not want to use WinUI 2 and want to build a custom systembackdrop, we need to introduce Win2D open source library to accomplish this operation. Therefore, in this project, we provide a Mica and Desktop Acrylic background color implementation independent of Win2D, using Mica or Desktop Acrylic API specification. The color styles provided by default are basically consistent with the Windows App SDK project.
 
 ----------
 
