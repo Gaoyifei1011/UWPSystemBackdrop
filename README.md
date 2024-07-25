@@ -4,6 +4,10 @@
 
 ### 一个不依赖 Win2D 的 UWP SystemBackdrop 纯 c# 版本实现
 
+### A pure c# version of the UWP SystemBackdrop that does not rely on Win2D
+
+----------
+
 #### 按照 Microsoft 官方的说明，如果我们需要在 UWP 项目中使用 Mica 或 Desktop Acrylic 背景色，需要引入 Microsoft.UI.Xaml （WinUI 2）Nuget 包依赖，而且 WinUI 2 只有 Mica Base，没有 Mica Alt。
 
 #### 然而当我们不想使用 WinUI 2 ，想构建自定义的背景色时，需要引入 Win2D 开源库来完成这一操作。所以在本项目中，我们提供了一种不依赖于 Win2D 的 Mica 和 Desktop Acrylic 背景色实现，使用的 Mica 或 Desktop Acrylic 的 API 规范，默认提供的色彩样式基本与 Windows App SDK 项目保持一致。
