@@ -2,21 +2,19 @@
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="78494b6d-2797-447f-be79-d86582b76afc"
+    Name="7952e87e-d4ab-4f37-99b6-3e23c49653b3"
     Publisher="CN=Gaoyifei"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="78494b6d-2797-447f-be79-d86582b76afc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
-
   <Properties>
-    <DisplayName>UWPSystemBackdropNetNative</DisplayName>
+    <DisplayName>UWPSystemBackdropNetCorePackage</DisplayName>
     <PublisherDisplayName>Gaoyifei</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -28,15 +26,15 @@
   </Resources>
 
   <Applications>
-    <Application Id="UWPSystemBackdropNetNative"
-      Executable="UWPSystemBackdropNetNative.exe"
-      EntryPoint="UWPSystemBackdropNetNative.App">
+    <Application Id="UWPSystemBackdropNetCore"
+      Executable="UWPSystemBackdropNetCore.exe"
+      EntryPoint="UWPSystemBackdropNetCore.App">
       <uap:VisualElements
-        DisplayName="UWPSystemBackdropNetNative"
+        DisplayName="UWPSystemBackdropNetCore"
+        Description="UWPSystemBackdropNetCore"
+        BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="UWPSystemBackdropNetNative"
-        BackgroundColor="transparent">
+        Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
@@ -45,5 +43,6 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
   </Capabilities>
 </Package>

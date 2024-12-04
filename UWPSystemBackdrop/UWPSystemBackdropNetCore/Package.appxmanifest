@@ -7,20 +7,20 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="78494b6d-2797-447f-be79-d86582b76afc"
+    Name="d4066cb9-ccda-43f0-95a2-b71293a50299"
     Publisher="CN=Gaoyifei"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="78494b6d-2797-447f-be79-d86582b76afc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="d4066cb9-ccda-43f0-95a2-b71293a50299" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
 
   <Properties>
-    <DisplayName>UWPSystemBackdropNetNative</DisplayName>
+    <DisplayName>UWPSystemBackdropNetCore</DisplayName>
     <PublisherDisplayName>Gaoyifei</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
 
   <Resources>
@@ -28,14 +28,14 @@
   </Resources>
 
   <Applications>
-    <Application Id="UWPSystemBackdropNetNative"
-      Executable="UWPSystemBackdropNetNative.exe"
-      EntryPoint="UWPSystemBackdropNetNative.App">
+    <Application Id="UWPSystemBackdropNetCore"
+      Executable="UWPSystemBackdropNetCore\UWPSystemBackdropNetCore.exe"
+      EntryPoint="UWPSystemBackdropNetCore.App">
       <uap:VisualElements
-        DisplayName="UWPSystemBackdropNetNative"
+        DisplayName="UWPSystemBackdropNetCore"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="UWPSystemBackdropNetNative"
+        Description="UWPSystemBackdropNetCore"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
