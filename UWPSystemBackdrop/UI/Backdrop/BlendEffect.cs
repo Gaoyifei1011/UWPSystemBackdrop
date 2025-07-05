@@ -1,33 +1,23 @@
-﻿using UWPSystemBackdrop.Helpers;
-using UWPSystemBackdrop.WindowsAPI.ComTypes;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
-using Windows.Graphics.Effects;
 using System.Runtime.InteropServices.Marshalling;
+using UWPSystemBackdrop.Helpers;
+using UWPSystemBackdrop.WindowsAPI.ComTypes;
+using Windows.Graphics.Effects;
+using WinRT;
 
 namespace UWPSystemBackdrop.UI.Backdrop
 {
-    [Guid("81C5B77B-13F8-4CDD-AD20-C890547AC65D")]
+    [GeneratedComClass, Guid("81C5B77B-13F8-4CDD-AD20-C890547AC65D")]
     public sealed partial class BlendEffect : IGraphicsEffect, IGraphicsEffectSource, IGraphicsEffectD2D1Interop
     {
-        public D2D1_BUFFER_PRECISION BufferPrecision { get; set; }
-
-        public bool CacheOutput { get; set; }
-
         public BlendEffectMode Mode { get; set; } = BlendEffectMode.Multiply;
+
+        public string Name { get; set; } = string.Empty;
 
         public IGraphicsEffectSource Background { get; set; }
 
         public IGraphicsEffectSource Foreground { get; set; }
-
-        private string _name = string.Empty;
-
-        public string Name
-        {
-            get { return _name; }
-
-            set { _name = value; }
-        }
 
         public int GetEffectId(out Guid id)
         {
@@ -35,9 +25,9 @@ namespace UWPSystemBackdrop.UI.Backdrop
             return 0;
         }
 
-        public int GetNamedPropertyMapping(IntPtr name, out uint index, out GRAPHICS_EFFECT_PROPERTY_MAPPING mapping)
+        public int GetNamedPropertyMapping(string name, out uint index, out GRAPHICS_EFFECT_PROPERTY_MAPPING mapping)
         {
-            switch (Marshal.PtrToStringUni(name))
+            switch (name)
             {
                 case nameof(Mode):
                     {
@@ -52,6 +42,7 @@ namespace UWPSystemBackdrop.UI.Backdrop
                         break;
                     }
             }
+
             return 0;
         }
 
@@ -66,6 +57,7 @@ namespace UWPSystemBackdrop.UI.Backdrop
                     return 0;
                 }
             }
+
             source = IntPtr.Zero;
             return -2147483637;
         }
@@ -76,21 +68,21 @@ namespace UWPSystemBackdrop.UI.Backdrop
             return 0;
         }
 
-        public int GetSource(uint index, out IGraphicsEffectSource source)
+        public int GetSource(uint index, out IntPtr source)
         {
             if (index is 0)
             {
-                source = Background;
+                source = MarshalInterface<IGraphicsEffectSource>.FromManaged(Background);
                 return 0;
             }
             else if (index is 1)
             {
-                source = Foreground;
+                source = MarshalInterface<IGraphicsEffectSource>.FromManaged(Foreground);
                 return 0;
             }
             else
             {
-                source = null;
+                source = IntPtr.Zero;
                 return 2147483637;
             }
         }

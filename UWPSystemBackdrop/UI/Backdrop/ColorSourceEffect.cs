@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Marshalling;
 using UWPSystemBackdrop.Helpers;
 using UWPSystemBackdrop.WindowsAPI.ComTypes;
 using Windows.Graphics.Effects;
@@ -8,30 +8,12 @@ using Windows.UI;
 
 namespace UWPSystemBackdrop.UI.Backdrop
 {
-    [Guid("61C23C20-AE69-4D8E-94CF-50078DF638F2")]
+    [GeneratedComClass, Guid("61C23C20-AE69-4D8E-94CF-50078DF638F2")]
     public sealed partial class ColorSourceEffect : IGraphicsEffect, IGraphicsEffectSource, IGraphicsEffectD2D1Interop
     {
-        public D2D1_BUFFER_PRECISION BufferPrecision { get; set; }
-
-        public bool CacheOutput { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public Color Color { get; set; } = Color.FromArgb(255, 255, 255, 255);
-
-        private string _name = string.Empty;
-
-        public string Name
-        {
-            get { return _name; }
-
-            set { _name = value; }
-        }
-
-        public Vector4 ColorHdr
-        {
-            get { return new(Color.R * 255.0f, Color.G * 255.0f, Color.B * 255.0f, Color.A * 255.0f); }
-
-            set { Color = Color.FromArgb((byte)(value.W / 255.0f), (byte)(value.X / 255.0f), (byte)(value.Y / 255.0f), (byte)(value.Z / 255.0f)); }
-        }
 
         public int GetEffectId(out Guid id)
         {
@@ -39,9 +21,9 @@ namespace UWPSystemBackdrop.UI.Backdrop
             return 0;
         }
 
-        public int GetNamedPropertyMapping(IntPtr name, out uint index, out GRAPHICS_EFFECT_PROPERTY_MAPPING mapping)
+        public int GetNamedPropertyMapping(string name, out uint index, out GRAPHICS_EFFECT_PROPERTY_MAPPING mapping)
         {
-            switch (Marshal.PtrToStringUni(name))
+            switch (name)
             {
                 case nameof(Color):
                     {
@@ -82,9 +64,9 @@ namespace UWPSystemBackdrop.UI.Backdrop
             return 0;
         }
 
-        public int GetSource(uint index, out IGraphicsEffectSource source)
+        public int GetSource(uint index, out IntPtr source)
         {
-            source = default;
+            source = IntPtr.Zero;
             return 0;
         }
 
