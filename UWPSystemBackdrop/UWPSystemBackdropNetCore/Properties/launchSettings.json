@@ -1,7 +1,0 @@
-{
-  "profiles": {
-    "UWPSystemBackdropNetCore": {
-      "commandName": "MsixPackage"
-    }
-  }
-}
